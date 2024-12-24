@@ -101,7 +101,7 @@ if tickers:
             df_optimal_weights = df_optimal_weights.set_index('Tickers')
             st.subheader("Optimal Weights for Stocks " +
                          ", ".join(tickers) + ": ")
-            st.dataframe(df_optimal_weights)
+            st.dataframe(df_optimal_weights, width=500)
 
             # Portfolio performance visualization
             portfolio_return, portfolio_volatility, sharpe_ratio = portfolio_statistics(
@@ -110,7 +110,7 @@ if tickers:
             if option_pie:
                 st.write("Pie Chart of Optimal Portfolio Weights:")
                 # Plot portfolio composition
-                fig, ax = plt.subplots(figsize=(6, 4))
+                fig, ax = plt.subplots(figsize=(4, 4))
                 ax.pie(optimal_weights, labels=tickers,
                        autopct='%1.1f%%', startangle=140)
                 st.pyplot(fig)
@@ -125,7 +125,7 @@ if tickers:
                 # Display the summary of stocks vs optimized portfolio
                 st.write(
                     "Annual Return and Volatility of the stocks compared to the optimized portfolio:")
-                st.dataframe(df_summary)
+                st.dataframe(df_summary, width=500)
                 # Plot showing this data
                 st.write("Annualized Returns and Volatilities:")
                 fig, ax = plt.subplots(figsize=(10, 5))
@@ -158,7 +158,8 @@ if tickers:
                 st.write("Stock Data Closing Prices:")
                 points_shown = st.number_input(
                     "Number of data points shown:", value=5, step=5)
-                st.dataframe(stock_data['Adj Close'].head(points_shown))
+                st.dataframe(stock_data['Adj Close'].head(
+                    points_shown))
 
             if option_return:
                 # Daily returns with optimal portfolio returns
