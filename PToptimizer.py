@@ -38,6 +38,8 @@ plt.rcParams.update({
     'ytick.labelsize': 12   # Font size for y-axis tick labels
 })
 
+# Set page configuration for wider layout
+st.set_page_config(layout="wide")
 
 # Streamlit app title
 st.title("Portfolio Optimization App")
@@ -130,7 +132,7 @@ if tickers:
                 for x in range(len(df_summary.index)):
                     plt.scatter(
                         df_summary.iloc[x, 1], df_summary.iloc[x, 0], label=df_summary.index[x])
-                ax.set_xlabel("Volatlity")
+                ax.set_xlabel("Volatility")
                 ax.set_ylabel("Return")
                 ax.legend()
                 st.pyplot(fig)
