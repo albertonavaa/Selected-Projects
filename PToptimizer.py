@@ -108,7 +108,7 @@ if tickers:
                 optimal_weights, mean_returns, cov_matrix)
 
             if option_pie:
-                st.write("Pie Chart of Optimal Portfolio Weights:")
+                st.subheader("Pie Chart of Optimal Portfolio Weights:")
                 # Plot portfolio composition
                 fig, ax = plt.subplots(figsize=(4, 4))
                 ax.pie(optimal_weights, labels=tickers,
@@ -123,11 +123,11 @@ if tickers:
                     portfolio_return, portfolio_volatility, sharpe_ratio]
 
                 # Display the summary of stocks vs optimized portfolio
-                st.write(
+                st.subheader(
                     "Annual Return and Volatility of the stocks compared to the optimized portfolio:")
                 st.dataframe(df_summary, width=500)
                 # Plot showing this data
-                st.write("Annualized Returns and Volatilities:")
+                st.subheader("Annualized Returns and Volatilities:")
                 fig, ax = plt.subplots(figsize=(10, 5))
                 for x in range(len(df_summary.index)):
                     plt.scatter(
@@ -139,7 +139,7 @@ if tickers:
 
             if option_price:
                 # Line chart for stock closing price with optimal portfolio
-                st.write("Closing Price Over Time:")
+                st.subheader("Closing Price Over Time:")
                 fig, ax = plt.subplots(figsize=(10, 5))
                 for ticker in tickers:
                     ax.plot(stock_data['Adj Close'][ticker], label=ticker)
@@ -155,7 +155,7 @@ if tickers:
                 st.pyplot(fig)
 
                 # Display stock data summary
-                st.write("Stock Data Closing Prices:")
+                st.subheader("Stock Data Closing Prices:")
                 points_shown = st.number_input(
                     "Number of data points shown:", value=5, step=5)
                 st.dataframe(stock_data['Adj Close'].head(
@@ -163,7 +163,7 @@ if tickers:
 
             if option_return:
                 # Daily returns with optimal portfolio returns
-                st.write("Daily Returns:")
+                st.subheader("Daily Returns:")
                 tickers_shown = tickers
                 tickers_shown.append('Optimized PT')
                 selected_tickers = st.multiselect(
@@ -185,7 +185,7 @@ if tickers:
                 st.pyplot(fig)
 
                 # Histogram of daily returns
-                st.write("Histograms of Daily Returns:")
+                st.subheader("Histograms of Daily Returns:")
                 daily_returns_complete = daily_returns_complete[selected_tickers]
                 fig, ax = plt.subplots(figsize=(10, 5))
                 sns.histplot(daily_returns_complete, bins=50, ax=ax)
