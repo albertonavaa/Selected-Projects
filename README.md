@@ -1,7 +1,7 @@
 # Portfolio Optimization & Loan Default Prediction 
 
 This repository contains two separate projects: 
-1. **Portfolio Optimization App**: An interactive Streamlit app for optimizing financial portfolios based on historical data. Find it [here](https://portfolio-optim.streamlit.app/)
+1. **Portfolio Optimization App**: An interactive Streamlit app for optimizing financial portfolios based on historical data. Find it [here](https://portfolio-optim.streamlit.app/).
 2. **Loan Default Prediction**: A machine learning notebook that predicts loan defaults using a Kaggle dataset with four different classifiers: Logistic Regression, Decision Trees, Random Forests, and XGBoost.
 
 ## Projects 
@@ -31,7 +31,7 @@ This project is a **machine learning notebook** that predicts whether a loan wil
 To run these projects locally: 
 1. Clone the repository: ```bash git clone https://github.com/albertonavaa/Selected-Projects.git cd your-repo ```
 2. Install the required dependencies: ```bash pip install -r requirements.txt ```
-3. You can tun the streamlit app by running: ```bash streamlit run PToptimizer.py ```
+3. You can run the streamlit app: ```bash streamlit run PToptimizer.py ```
 
 ## License 
 This project is licensed under the MIT License - see the License file for details. 
