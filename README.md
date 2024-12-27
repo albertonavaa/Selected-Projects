@@ -15,7 +15,7 @@ This project is a **Streamlit-based interactive app** that allows users to explo
 - Ability to add any number of stock tickers
 - Portfolio statistics (e.g., expected return, volatility, Sharpe ratio)
 
-[Portfolio Optimization App Screenshot](PToptimization.jpg)
+![Portfolio Optimization App Screenshot](PToptimizer.jpg)
 
 ### 2. Loan Default Prediction 
 This project is a **machine learning notebook** that predicts whether a loan will default or not using a Kaggle dataset. It builds and compares the performance of four different classifiers: **Logistic Regression**, **Decision Trees**, **Random Forests**, and **XGBoost**. The random forest model performed the best with a **98% accuracy and f1-score** on the test data. 
