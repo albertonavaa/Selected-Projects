@@ -74,8 +74,6 @@ This project consists of a **machine learning notebook** that predicts whether a
 - **98% accuracy and f1-score** on predicting loan defaults
 - Feature Importance Estimation
 
-![Evaluation of all 4 models in test data](Loan_model_eval.jpg)
-
 ## Installation 
 To run these projects locally: 
 1. Clone the repository: ```bash git clone https://github.com/albertonavaa/Selected-Projects.git cd your-repo ```
