@@ -41,13 +41,20 @@ Objectives:
 - Evaluate to a 'Baseline' model that predicts the average value of beta every time, we expect a significant improvement.
 - Find relevant features to understand the factors predicting Beta.
 
+Method:
+- We choose 100 stocks randomly and use the S&P 500 as a market reference to calculate the Beta.
+In addition to the 45-day forward-looking Beta, we also calculate past Beta, correlation, and mean daily returns and volumes over the last 45 and 20 days.
+- We train 3 models: Linear Regressor, Random Forest Regressor, and Gradient Boost Regressor.
+
 Results:
 
-- Best performing model: Random Forest Regressor. We calculated a RMSE of 0.27 and a r2-score of 0.78. For a target with an average of about 1 and a STD of 0.57, this represents an average difference of less than 30% to the real value and a 53% decrease compared to a 'Baseline' model that guesses the mean value everytime.The R2 score of 0.78 implies that 78% of the variance in the target variable is explained by this model, compared to 0% in the simple 'Baseline' model.
-- After extracting the Feature Importances, the results show that for linear regression, the 45-day past Covariances are the most relevant feature by far. However, for the RF and GB Regressors the 45-day past Beta is the largest predictor of the 45-day future beta.
-
+- Best performing model: Random Forest Regressor. We calculated a RMSE of 0.27 and a r2-score of 0.76. 
+- For a target with an average of about 1 and a STD of 0.54, a RMSE of 0.27 represents an average difference of less than 30% to the real value and a 50% decrease compared to a 'Baseline' model that guesses the mean value everytime.
+- The R2 score of 0.76 implies that 76% of the variance in the target variable is explained by this model, compared to 0% in the simple 'Baseline' model.
 ![Model Evaluation](Beta_Model_eval.jpg)
+- After extracting the Feature Importances, the results show that for linear regression, the 45-day past Covariances are the most relevant feature by far. However, for the RF and GB Regressors the 45-day past Beta is the largest predictor of the 45-day future beta.
 ![Feature Importance](Beta_Feature_imp.jpg)
+
 
 ### 2. [Portfolio Optimization](https://portfolio-optim.streamlit.app/) App 
 This project is a **Streamlit-based interactive app** that allows users to explore and optimize their investment portfolios. The app calculates the optimal distribution of stocks in a portfolio by maximizing the Sharpe ratio in a given time interval. It offers visualization tools to see how the portfolio's returns, volatilities, closing price, and daily returns compare to those of the individual stocks. The app is included in the file PToptimizer.py
@@ -58,6 +65,7 @@ This project is a **Streamlit-based interactive app** that allows users to explo
 - Ability to add any number of stock tickers
 - Portfolio statistics (e.g., expected return, volatility, Sharpe ratio)
 
+Screenshot of the App:
 ![Portfolio Optimization App Screenshot](PToptimizer.jpg)
 
 ### 3. Loan Default Prediction 
