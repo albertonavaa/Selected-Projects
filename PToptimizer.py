@@ -70,10 +70,10 @@ if tickers:
         stock_data = yf.download(tickers, start=start_date, end=end_date)
 
         # if not stock_data.empty:
-        if stock_data['Adj Close'].notna().all().all():
+        if stock_data['Close'].notna().all().all():
 
             # Calculate daily returns, mean returns, covariance and std
-            daily_returns = stock_data['Adj Close'].pct_change().dropna()
+            daily_returns = stock_data['Close'].pct_change().dropna()
             mean_returns = daily_returns.mean()
             cov_matrix = daily_returns.cov()
             std = daily_returns.std()
@@ -142,12 +142,12 @@ if tickers:
                 st.subheader("Closing Price Over Time:")
                 fig, ax = plt.subplots(figsize=(10, 5))
                 for ticker in tickers:
-                    ax.plot(stock_data['Adj Close'][ticker], label=ticker)
+                    ax.plot(stock_data['Close'][ticker], label=ticker)
                 stock_data_optimal = pd.Series(0,
-                                               index=stock_data['Adj Close'].iloc[:, 0].index)
+                                               index=stock_data['Close'].iloc[:, 0].index)
                 for i in range(len(optimal_weights)):
                     stock_data_optimal += optimal_weights[i] * \
-                        stock_data['Adj Close'].iloc[:, i]
+                        stock_data['Close'].iloc[:, i]
                 ax.plot(stock_data_optimal, label='Optimized Portfolio')
                 ax.set_xlabel("Date")
                 ax.set_ylabel("Price (USD)")
@@ -158,7 +158,7 @@ if tickers:
                 st.subheader("Stock Data Closing Prices:")
                 points_shown = st.number_input(
                     "Number of data points shown:", value=5, step=5)
-                st.dataframe(stock_data['Adj Close'].head(
+                st.dataframe(stock_data['Close'].head(
                     points_shown))
 
             if option_return:
